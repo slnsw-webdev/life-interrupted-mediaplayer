@@ -1,6 +1,6 @@
 // Wait for device API libraries to load
 //
-// document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener("deviceready", onDeviceReady, false);
 
 // files
 var media_files = [];
@@ -51,7 +51,7 @@ $( document ).ready(function() {
 	   media_src = "http://www.sl.nsw.gov.au/events/exhibitions/2014/life_interrupted/audio/" + file_name;
 	   
 	   // play audio
-	   // play_Audio(media_src);	
+	   play_Audio(media_src);	
 	   
 	   // swap image for that media file
 	   $('#player-play-' + click_id).hide();
