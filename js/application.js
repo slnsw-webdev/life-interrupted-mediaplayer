@@ -1,6 +1,6 @@
 // Wait for device API libraries to load
 //
-document.addEventListener("deviceready", onDeviceReady, false);
+// document.addEventListener("deviceready", onDeviceReady, false);
 
 // files
 var media_files = [];
@@ -33,54 +33,53 @@ var my_media = null;
 var mediaTimer = null;
 
 
-$( document ).ready(function() {
-	
-	// function to swap out images
-	$(".player-play").click(function(event){
-		
-		event.preventDefault();
-		
-		// set class on cell
-		$(this).closest(".column-cell").css("background-color", "#00cc99");
-	
-	   // get media file
-	   click_ref = $(this).attr("id").split("-");
-	   click_id = click_ref[2];
-	   media_ref = parseInt(click_id, 10)-1;
-	   file_name = media_files[media_ref];
-	   media_src = "http://www.sl.nsw.gov.au/events/exhibitions/2014/life_interrupted/audio/" + file_name;
-	   
-	   // play audio
-	   play_Audio(media_src);	
-	   
-	   // swap image for that media file
-	   $('#player-play-' + click_id).hide();
-	   $('#player-stop-' + click_id).show();
-	   
-	});
-	
-	$(".player-stop").click(function(event){
-		
-		event.preventDefault();
-		
-		// set class on cell
-		$(this).closest(".column-cell").css("background-color", "#FFF");
-		
-		// get media file
-	    click_ref = $(this).attr("id").split("-");
-	    click_id = click_ref[2];
-		
-	   // swap image
-	   $('#player-stop-' + click_id).hide();
-	   $('#player-play-' + click_id).show();
-	   
-	});
 
+	
+// function to swap out images
+$(".player-play").click(function(event){
+	
+	event.preventDefault();
+	
+	// set class on cell
+	$(this).closest(".column-cell").css("background-color", "#00cc99");
+
+   // get media file
+   click_ref = $(this).attr("id").split("-");
+   click_id = click_ref[2];
+   media_ref = parseInt(click_id, 10)-1;
+   file_name = media_files[media_ref];
+   media_src = "http://www.sl.nsw.gov.au/events/exhibitions/2014/life_interrupted/audio/" + file_name;
+   
+   // play audio
+   play_Audio(media_src);	
+   
+   // swap image for that media file
+   $('#player-play-' + click_id).hide();
+   $('#player-stop-' + click_id).show();
+   
+});
+
+$(".player-stop").click(function(event){
+	
+	event.preventDefault();
+	
+	// set class on cell
+	$(this).closest(".column-cell").css("background-color", "#FFF");
+	
+	// get media file
+	click_ref = $(this).attr("id").split("-");
+	click_id = click_ref[2];
+	
+   // swap image
+   $('#player-stop-' + click_id).hide();
+   $('#player-play-' + click_id).show();
+   
 });
 
 // Play audio
 //
 function play_Audio(src) {
+	
 	// Create Media object from src
 	my_media = new Media(src, onSuccess, onError);
 	
@@ -100,7 +99,7 @@ function play_Audio(src) {
 				},
 				// error callback
 				function(e) {
-					console.log("Error getting pos=" + e);
+					alert("Error getting pos=" + e);
 					setAudioPosition("Error: " + e);
 				}
 			);
@@ -129,7 +128,7 @@ function stopAudio() {
 // onSuccess Callback
 //
 function onSuccess() {
-	console.log("playAudio():Audio Success");
+	alert("playAudio():Audio Success");
 }
 
 // onError Callback
