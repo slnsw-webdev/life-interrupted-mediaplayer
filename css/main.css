@@ -14,6 +14,16 @@ html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('../img/background-image.png');	
 }
 
 /*
@@ -28,8 +38,8 @@ html {
 }
 
 ::selection {
-    background-color: #00cc99;
-    color: #ffffff;
+    background: #b3d4fc;
+    text-shadow: none;
 }
 
 /*
@@ -92,73 +102,93 @@ textarea {
    ========================================================================== */
 
 
-/*custom font*/
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
-
-/*basic reset*/
-* {margin: 0; padding: 0;}
-
-html {
-	height: 100%;
-	/*Image only BG fallback*/
-	background: url('img/gs.png');
-	/*background = gradient + image pattern combo*/
-	background: 
-		linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), 
-		url('img/gs.png');
+.photo {
+  text-align: center;
+}
+ 
+#player-play, #player-stop {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+ 
+#player-play {
+  background-image: url('../img/play.png');
+  float: right;
 }
 
-body {
-	font-family: montserrat, arial, verdana;
-	height: 100%;
-	width: 100%;	
+#player-play:hover {
+  background-image: url('../img/play-hover.png');
 }
 
-hr {
-	border-top: 1px solid #ddd;	
+#player-stop {
+  background-image: url('../img/pause.png');
+  display: none;
+  float: right;
 }
 
-/*
+#player-stop:hover {
+  display: none;
+  background-image: url('../img/pause-hover.png');
+}
+ 
+#time-slider {
+  display: none;
+}
+ 
+div.ui-slider-track {
+  margin: 0;
+  width: 100%;
+}
+
+
 #container {
-	width: 768px;
-	height: 1024px;	
+	width: 100%;
+	height: 100% !important;
+	background-repeat: repeat;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;	
 }
-*/
 
 #main {
-  margin-top: 30px;
-  margin-left: auto; 
-  margin-right: auto;
-  position: relative;
-  background: white;
-  border: 0 none;
-  border-radius: 3px;
-  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-  padding: 10px;
-  box-sizing: border-box;
-  width: 95%;
+	width: 100%;
+	height: 100%;
+	margin-top: 86px;	
 }
 
 #header {
 	background-color: #000;
-	height: 75px;
+	height: 86px;
 	margin: 0px;
 	padding: 0px;
 	display: table;	
 	width: 100%;
+	position: fixed;
+}
+
+#player {
+	display: none;	
 }
 
 
-#logocontainer {
-	display: table-cell;	
+#titlecontainer {
+	display: table-cell;
+	width: 40%;	
+	height: 86px;
 }
 
 #title {
+	float: left;
 	color: #fff;
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 27px;
-	font-weight:400;
-	padding-left: 50px;	
+	font-weight: 400;
+	padding-left: 4%;
+	padding-top: 20px;
+	vertical-align: middle;	
+	height: 66px;
 }
 
 #logo {
@@ -167,7 +197,11 @@ hr {
 }
 
 #searchform {
-	display: table-cell;	
+	display: table-cell;
+	width: 40%;
+	height: 66px;
+	padding-top: 20px;
+	float: left;	
 }
 
 #sllogocontainer {
@@ -175,135 +209,86 @@ hr {
 	width: 121px;
 }
 
-#surveyheader {
-	margin-left: 30px; 
-	margin-right: 30px; 
-	min-width: 80%;	
+#sllogocontainer img {
+	float: right;
 }
 
-#barcontainer {
-	margin-left: 30px; 
-	margin-right: 30px; 
-	min-width: 80%;	
-}
-
-.ui-widget-header {
-	border: 1px solid #e78f08;
-	background: #e50046 url("images/ui-bg_gloss-wave_35_f6a828_500x100.png") 50% 50% repeat-x;
+#media-info {
 	color: #fff;
-	font-weight: bold;	
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 10px;
+	line-height:normal;	
 }
 
-/*form styles*/
-#msform {
-	min-width: 80%;
-	min-height: 600px;
-	margin-top: 20px;
-	margin-left: 30px; 
-	margin-right: 30px;
-	margin-bottom: 20px;
-	position: relative;
-}
-#msform fieldset {
-	width: 100%;
+.container-center {
+	width: 80%;
 	height: 100%;
-	/*stacking fieldsets above each other*/
-	position: absolute;
-	top: 20px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 2%;
+	text-align: center;
 }
-/*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
-	display: none;
-}
-/*inputs*/
-#msform input, #msform textarea {
-	padding: 10px 5px 10px 5px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
+
+.container-center .image-container {
 	width: 100%;
-	box-sizing: border-box;
-	font-family: Arial;
-	color: #2C3E50;
-	font-size: 14px;
-	margin-top: 8px;
+	margin-top: 50px;
 }
 
-#msform select {
-	outline:none;
-	background-color:transparent;
-    border: 0px solid;
-}
-
-#msform li {
-	
-}	
-
-/*form styles*/
-#confirmForm {
-	min-width: 80%;
-	min-height: 600px;
-	margin-top: 20px;
-	margin-left: 30px; 
-	margin-right: 30px;
-	margin-bottom: 20px;
-	position: relative;
-}
-#confirmForm fieldset {
+.container-center .button-container {
 	width: 100%;
-	height: 100%;
-	/*stacking fieldsets above each other*/
-	position: absolute;
-	top: 20px;
-}
-/*Hide all except first fieldset*/
-#confirmForm fieldset:not(:first-of-type) {
-	display: none;
-}
-/*inputs*/
-#confirmForm input, #confirmForm textarea {
-	padding: 10px 5px 10px 5px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	box-sizing: border-box;
-	font-family: Arial;
-	color: #2C3E50;
-	font-size: 14px;
-	margin-top: 8px;
 }
 
-#confirmForm select {
-	outline:none;
-	background-color:transparent;
-    border: 0px solid;
+.column-container {
+	width: 50%;
+	float: left;
 }
 
-#confirmForm li {
-	
-}	
+.column-content {
+	width: 96%;
+	margin-left: 2%;
+	margin-right: 2%;	
+}
 
-/*headings*/
-.fs-title {
-	font-size: 20px;
-	font-style: italic;
-	font-family:Georgia, "Times New Roman", Times, serif;
-	font-weight:400;
-	color: #0059be;
-	margin-bottom: 10px;
+.column-cell {
 	margin-top: 10px;
-}
-.fs-subtitle {
-	font-weight: normal;
-	font-size: 14px;
-	color: #666;
-	margin-bottom: 20px;
-	padding-top: 15px;
-}
-
-#confirmationPage {
-	display: none;	
+	margin-bottom: 10px;
+	padding: 4px;
+	background-color: #FFF;
+	background-color: #FFF;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.23);
+	width: 100%;
+	min-height: 100px;	
 }
 
-#msform .single-button   {
+.column-cell-image-container {
+	float: left;
+	padding: 0;
+	margin: 0;
+	width: 100px;
+	heigth: 100px;
+}
+
+.column-cell-image-container img {
+	width: 100px;
+	heigth: 100px;
+}
+
+.column-cell-content-container {
+	float: left;
+	padding: 5px;
+	margin-right: 10px;
+	font-family: Arial;
+	font-size: 12px;
+	max-width: 52%;
+}
+
+.column-cell-control-container {
+	float: right;
+	width: 105px;
+}
+
+.entry-btn {
 	background-color: #ededed;
 	border: 1px solid #dcdcdc;
 	display: inline-block;
@@ -317,179 +302,33 @@ hr {
 	text-decoration: none;
 	text-align: center;
 	margin-right: 8px;
-	vertical-align: top;
+	margin-top: 5%;	
 }
-#msform .single-button:hover {
+
+.entry-btn:hover {
 	background-color:#00cc99;
-	color: #ffffff;
+	color: #ffffff;	
 }
 
-#msform .multiple-button   {
-	background-color: #ededed;
-	border: 1px solid #dcdcdc;
-	display: inline-block;
-	color: #777777;
-	font-family:Arial;
-	font-size:12px;
-	font-weight:bold;
-	font-style:normal;
-	height:57px;
-	width:200px;
-	text-align: center;
-	text-wrap:normal;
-	margin-right: 8px;
-	white-space: normal;
-	vertical-align: top;
+.media-title {
+	font-size: 14px;
+	font-weight: bold;
 }
-#msform .multiple-button:hover {
-	background-color:#00cc99;
-	color: #ffffff;
+.media-quote {
+		
 }
 
-#msform .multiple-large-button   {
-	background-color: #ededed;
-	border: 1px solid #dcdcdc;
-	display: inline-block;
-	color: #777777;
-	font-family:Arial;
-	font-size:12px;
-	font-weight:bold;
-	font-style:normal;
-	height:57px;
-	width:550px;
-	text-align: center;
-	text-wrap:normal;
-	margin-right: 8px;
-	white-space: normal;
-	vertical-align: top;
-}
-#msform .multiple-large-button:hover {
-	background-color:#00cc99;
-	color: #ffffff;
+.media-date {
+	font-style: italic;
 }
 
-#q8detailscontainer {
-	display: '';
+.media-time {
+	font-size: 10px;	
 }
 
-
-#msform input.next.action-button {
-	position: absolute;
-	bottom: 40px;
-	right: 40px;
+#pause-media {
+	display: none;	
 }
-
-#msform input.previous.action-button {
-	position: absolute;
-	bottom: 40px;
-	right: 150px;
-}
-
-#msform .action-button  {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #616161), color-stop(1, #616161) );
-	background:-moz-linear-gradient( center top, #616161 5%, #616161 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#616161', endColorstr='#616161');
-	background-color:#616161;
-	border:1px solid #616161;
-	display:inline-block;
-	color:#ffffff;
-	font-family:arial;
-	font-size:14px;
-	font-weight:bold;
-	font-style:normal;
-	width:100px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #616161;
-	margin: 3px;
-}
-#msform .action-button:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #616161), color-stop(1, #616161) );
-	background:-moz-linear-gradient( center top, #616161 5%, #616161 5% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#616161', endColorstr='#616161');
-	background-color:#e50046;
-}
-
-#msform input.submit.action-button {
-	position: absolute;
-	bottom: 40px;
-	right: 40px;
-	color: #fff;
-	background-color: #e50046;
-}
-
-#confirmationPage {
-	min-width: 80%;
-	min-height: 600px;
-	margin-top: 20px;
-	margin-left: 30px; 
-	margin-right: 30px;
-	margin-bottom: 20px;
-	position: relative;
-}
-
-#confirmForm {
-	min-width: 80%;
-	min-height: 600px;
-	margin-left: 30px; 
-	margin-right: 30px;
-	margin-bottom: 20px;
-	position: relative;
-}
-#confirmForm fieldset {
-	width: 100%;
-	height: 100%;
-	/*stacking fieldsets above each other*/
-	position: absolute;
-	top: 20px;
-}
-
-#confirmForm .action-button  {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #616161), color-stop(1, #616161) );
-	background:-moz-linear-gradient( center top, #616161 5%, #616161 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#616161', endColorstr='#616161');
-	background-color:#616161;
-	border:1px solid #616161;
-	display:inline-block;
-	color:#ffffff;
-	font-family:arial;
-	font-size:14px;
-	font-weight:bold;
-	font-style:normal;
-	width:100px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #616161;
-	margin: 3px;
-}
-#confirmForm .action-button:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #616161), color-stop(1, #616161) );
-	background:-moz-linear-gradient( center top, #616161 5%, #616161 5% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#616161', endColorstr='#616161');
-	background-color:#e50046;
-}
-
-#confirmForm input.submit.action-button {
-	position: absolute;
-	bottom: 40px;
-	right: 40px;
-	color: #fff;
-	background-color: #e50046;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ==========================================================================

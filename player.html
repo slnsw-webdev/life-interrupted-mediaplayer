@@ -1,0 +1,727 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Life Interrupted - Diary Readings</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+		<script src="js/vendor/jquery-1.11.1.min.js"></script>
+        <script src="js/application.js"></script>
+    </head>
+    <body>
+        
+        <!-- sl logo -->
+		<div id="container">
+        
+            <div id="header">
+                <div id="titlecontainer">
+                    <div id="title">Diary Readings</div>
+                </div>
+                <div id="searchform">
+                	<div id="player">
+                      <div id="media-info">
+                          You're listening to: <span id="media-name"></span><br />
+                          Located at: <span id="media-path"></span><br />
+                          <div>
+                             Played: <label id="media-played">-</label> of <label id="media-duration">-</label>
+                             <input type="range" name="time-slider" id="time-slider" value="0" min="0" max="100" />
+                          </div>
+                       </div>
+                     </div>       
+                </div>
+                <div id="sllogocontainer">
+                    <img src="img/sl_logo.png" id="sl_logo" name="sl_logo">
+                </div>
+            </div>
+            
+            <div id="main" role="main">
+            
+            	<div id="first-column" class="column-container">
+                	
+                    <div class="column-content">
+                    	
+                        <div class="column-cell">
+                        	
+                            <div class="column-cell-image-container">
+                            	<img src="img/sister-ann-donnell.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Sister Anne Donell
+                                </div>
+                                <div class="media-date">
+                                	27 December 1915, Lemnos island
+                                </div>
+                                <div class="media-quote">
+                                	Christmas Day celebrations at Third General Hospital
+                                </div>
+                                <div class="media-time">
+                                	Time : 1.31  <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-1" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-1" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/sister-ann-donnell.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Sister Anne Donell
+                                </div>
+                                <div class="media-date">
+                                	2 January 1918, Ypres
+                                </div>
+                                <div class="media-quote">
+                                	Bombings and homesickness at a casualty clearing station
+                                </div>
+                                <div class="media-time">
+                                	Time : 4:54 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-2" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-2" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/sister-ann-donnell.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Sister Anne Donell
+                                </div>
+                                <div class="media-date">
+                                	February 1919
+                                </div>
+                                <div class="media-quote">
+                                	Crossing the Equator on ship homeward bound
+                                </div>
+                                <div class="media-time">
+                                	Time : 2.39 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-3" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-3" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/burrell.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Bill Burrell
+                                </div>
+                                <div class="media-date">
+                                	Thursday 20 September 1917, Ypres
+                                </div>
+                                <div class="media-quote">
+                                	The stretcher-bearer’s experience struggling to survive the artillery barrage
+                                </div>
+                                <div class="media-time">
+                                	Time : 2.50 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-4" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-4" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/Ellis-Silas.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Ellis Silas
+                                </div>
+                                <div class="media-date">
+                                	January 1915, on the troopship Ceramic
+                                </div>
+                                <div class="media-quote">
+                                	Adapting to military life and the routines on board a troopship.
+                                </div>
+                                <div class="media-time">
+                                	Time : 2.02 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-5" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-5" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/Ellis-Silas.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Ellis Silas
+                                </div>
+                                <div class="media-date">
+                                	April 1915
+                                </div>
+                                <div class="media-quote">
+                                	On the way to Gallipoli
+                                </div>
+                                <div class="media-time">
+                                	Time : 1.29 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-6" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-6" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/Ellis-Silas.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Ellis Silas
+                                </div>
+                                <div class="media-date">
+                                	25 April 1915, Gallipoli
+                                </div>
+                                <div class="media-quote">
+                                	Landing at Gallipoli
+                                </div>
+                                <div class="media-time">
+                                	Time : 3.47 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-7" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-7" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/frank-hurley.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Frank Hurley
+                                </div>
+                                <div class="media-date">
+                                	16 February 1918, Middle East
+                                </div>
+                                <div class="media-quote">
+                                	Experiencing flying for the first time
+                                </div>
+                                <div class="media-time">
+                                	Time : 3.07 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-8" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-8" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/jim-marshall.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Jim Marshall
+                                </div>
+                                <div class="media-date">
+                                	13 September 1916
+                                </div>
+                                <div class="media-quote">
+                                	Leaving home for war - part 1
+                                </div>
+                                <div class="media-time">
+                                	Time : 2.11 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-9" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-9" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                         <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/Ellis-Silas.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Jim Marshall
+                                </div>
+                                <div class="media-date">
+                                	13 September 1916
+                                </div>
+                                <div class="media-quote">
+                                	Leaving home for war - part 2
+                                </div>
+                                <div class="media-time">
+                                	Time : 2.19 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-10" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-10" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/jim-marshall.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Jim Marshall
+                                </div>
+                                <div class="media-date">
+                                	24 November 1916, London
+                                </div>
+                                <div class="media-quote">
+                                	On leave in London
+                                </div>
+                                <div class="media-time">
+                                	Time: 3.34 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-11" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-11" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+                
+                <div id="second-column" class="column-container">
+                
+                	<div class="column-content">
+                    
+                    
+                    	<div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/jack-hutton.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Jack Hutton
+                                </div>
+                                <div class="media-date">
+                                	January 1917, France
+                                </div>
+                                <div class="media-quote">
+                                	A laconic look at the horrors of trench warfare and the cold
+                                </div>
+                                <div class="media-time">
+                                	Time : 5.52 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-12" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-12" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                    
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/colley-priest.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Langford Colley-Priest
+                                </div>
+                                <div class="media-date">
+                                	July 1916, Fromelles and the Somme
+                                </div>
+                                <div class="media-quote">
+                                	Daily life in the trenches
+                                </div>
+                                <div class="media-time">
+                                	Time : 3.48 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-13" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-13" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/colley-priest.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Langford Colley-Priest
+                                </div>
+                                <div class="media-date">
+                                	November, 1916
+                                </div>
+                                <div class="media-quote">
+                                	Stretcher-bearer in the trenches
+                                </div>
+                                <div class="media-time">
+                                	Time : 2.54 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-14" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-14" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/louis-vasco.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Louis Vasco
+                                </div>
+                                <div class="media-date">
+                                	25 June 1917, France
+                                </div>
+                                <div class="media-quote">
+                                	Sharing his love of France with his wife 
+                                </div>
+                                <div class="media-time">
+                                	Time : 4.37 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-15" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-15" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/louis-vasco.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Louis Vasco
+                                </div>
+                                <div class="media-date">
+                                	20 June 1918, England
+                                </div>
+                                <div class="media-quote">
+                                	A study in blues
+                                </div>
+                                <div class="media-time">
+                                	Time : 1.18 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-16" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-16" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/louis-vasco.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Louis Vasco
+                                </div>
+                                <div class="media-date">
+                                	30 June 1918, England
+                                </div>
+                                <div class="media-quote">
+                                	One of his last letters home to his wife
+                                </div>
+                                <div class="media-time">
+                                	Time : 1.31 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-17" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-17" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/m-c-evans.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Maurice Evans
+                                </div>
+                                <div class="media-date">
+                                	November 1916, Middle East
+                                </div>
+                                <div class="media-quote">
+                                	My horse Bernard and me 
+                                </div>
+                                <div class="media-time">
+                                	Time : 2.05 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-18" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-18" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/choat.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Wesley Choat
+                                </div>
+                                <div class="media-date">
+                                	April 1919
+                                </div>
+                                <div class="media-quote">
+                                	Letter to the Principal Librarian
+                                </div>
+                                <div class="media-time">
+                                	Time : 1.26 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-19" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-19" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/choat.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Wesley Choat
+                                </div>
+                                <div class="media-date">
+                                	La Belle France
+                                </div>
+                                
+                                <div class="media-time">
+                                	Time : 1.54 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-20" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-20" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/choat.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	Wesley Choat
+                                </div>
+                                <div class="media-date">
+                                	April 1919, Germany
+                                </div>
+                                <div class="media-quote">
+                                	Experience as a prisoner of war
+                                </div>
+                                <div class="media-time">
+                                	Time : 2.05 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-21" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-21" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                        
+                        <div class="column-cell">
+                        
+                        	<div class="column-cell-image-container">
+                            	<img src="img/emden-battle.png" />
+                            </div>
+                            
+                            <div class="column-cell-content-container">
+                            	<div class="media-title">
+                                	The Sydney and the Emden battle
+                                </div>
+                                <div class="media-date">
+                                	9th November, 1914
+                                </div>
+                                <div class="media-time">
+                                	Time : 5.54 <span id="audio_position"></span>
+                                </div> 
+                            </div>
+                            
+                            <div class="column-cell-control-container">                               
+                            	<div class="player-controls">
+                                	<a href="#" id="player-play-22" class="player-play" onclick="playAudio();"></a>
+                       				<a href="#" id="player-stop-22" class="player-stop" onclick="pauseAudio();"></a>
+                                </div>
+                            </div>
+                        	
+                        </div>
+                    
+                    </div>
+                
+                </div>
+            
+            </div>
+                
+        </div>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        
+    </body>
+</html>
