@@ -36,9 +36,9 @@ var mediaTimer = null;
 
 	
 // function to swap out images
-$(".player-play").click(function(event){
+$(".player-play").click(function(){
 	
-	event.preventDefault();
+	// event.preventDefault();
 	
 	// set class on cell
 	$(this).closest(".column-cell").css("background-color", "#00cc99");
@@ -59,9 +59,9 @@ $(".player-play").click(function(event){
    
 });
 
-$(".player-stop").click(function(event){
+$(".player-stop").click(function(){
 	
-	event.preventDefault();
+	// event.preventDefault();
 	
 	// set class on cell
 	$(this).closest(".column-cell").css("background-color", "#FFF");
