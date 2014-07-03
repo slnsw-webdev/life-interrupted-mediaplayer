@@ -106,29 +106,29 @@ textarea {
   text-align: center;
 }
  
-#player-play, #player-stop {
+.player-play, .player-stop {
   display: inline-block;
   width: 100px;
   height: 100px;
   float: left;
 }
  
-#player-play {
+.player-play {
   background-image: url('../img/play.png');
   float: right;
 }
 
-#player-play:hover {
+.player-play:hover {
   background-image: url('../img/play-hover.png');
 }
 
-#player-stop {
+.player-stop {
   background-image: url('../img/pause.png');
   display: none;
   float: right;
 }
 
-#player-stop:hover {
+.player-stop:hover {
   display: none;
   background-image: url('../img/pause-hover.png');
 }
