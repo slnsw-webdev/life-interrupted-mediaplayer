@@ -36,9 +36,9 @@ var mediaTimer = null;
 $( document ).ready(function() {
 	
 	// function to swap out images
-	$(".player-play").click(function(){
+	$(".player-play").click(function(event){
 		
-		e.preventDefault();
+		event.preventDefault();
 		
 		// set class on cell
 		$(this).closest(".column-cell").css("background-color", "#00cc99");
@@ -51,7 +51,7 @@ $( document ).ready(function() {
 	   media_src = "http://www.sl.nsw.gov.au/events/exhibitions/2014/life_interrupted/audio/" + file_name;
 	   
 	   // play audio
-	   play_Audio(media_src);	
+	   // play_Audio(media_src);	
 	   
 	   // swap image for that media file
 	   $('#player-play-' + click_id).hide();
@@ -59,9 +59,9 @@ $( document ).ready(function() {
 	   
 	});
 	
-	$(".player-stop").click(function(){
+	$(".player-stop").click(function(event){
 		
-		e.preventDefault();
+		event.preventDefault();
 		
 		// set class on cell
 		$(this).closest(".column-cell").css("background-color", "#FFF");
