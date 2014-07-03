@@ -32,7 +32,15 @@ media_files[21] = "Emden_sydney_short.mp3";
 var my_media = null;
 var mediaTimer = null;
 
+$("#player-play-demo").click(function(){
 
+	// Create Media object from src
+	my_media = new Media("http://www.sl.nsw.gov.au/events/exhibitions/2014/life_interrupted/audio/AnneDonnell_Christmas_Day_celebrations.mp3", onSuccess, onError);
+	
+	// Play audio
+	my_media.play();
+	
+});
 
 	
 // function to swap out images
