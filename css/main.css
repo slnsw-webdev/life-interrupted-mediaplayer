@@ -240,11 +240,13 @@ div.ui-slider-track {
 }
 
 .column-container {
-	width: 50%;
-	float: left;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .column-content {
+	margin-top: 100px;
 	width: 96%;
 	margin-left: 2%;
 	margin-right: 2%;	
@@ -280,7 +282,7 @@ div.ui-slider-track {
 	margin-right: 10px;
 	font-family: Arial;
 	font-size: 12px;
-	max-width: 45%;
+	max-width: 60%;
 }
 
 .column-cell-control-container {
