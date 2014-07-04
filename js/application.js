@@ -37,11 +37,7 @@ function onDeviceReady(){}
 $( document ).ready(function() {	  
   // function to swap out images
   $(".player-play").click(function(){
-	  
-	  // event.preventDefault();
-	  console.log('play audio called ....');
-	  
-	  
+ 	  
 	  // set class on cell
 	  $(this).closest(".column-cell").css("background-color", "#00cc99");
   
@@ -51,11 +47,6 @@ $( document ).ready(function() {
 	 media_ref = parseInt(click_id, 10)-1;
 	 file_name = media_files[media_ref];
 	 media_src = "http://www.sl.nsw.gov.au/events/exhibitions/2014/life_interrupted/audio/" + file_name;
-	
-	 
-	 console.log('media_src ....' + media_src);
-  
-	
 	 
 	 // play audio
 	 play_Audio(media_src);	
@@ -88,8 +79,6 @@ $( document ).ready(function() {
 // Play audio
 //
 function play_Audio(src) {
-	
-	console.log('play audtio called ....');
 	
 	// Create Media object from src
 	my_media = new Media(src, onSuccess, onError);
