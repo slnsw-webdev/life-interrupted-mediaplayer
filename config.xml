@@ -11,7 +11,7 @@
 			Rod Higgins
 		</author>
 		
-		<gap:platform name="ios" />
+		<gap:platform name="universal" />
 		
 		<gap:plugin name="org.apache.cordova.media" />
 		<gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
