@@ -40,7 +40,6 @@ function onDeviceReady(){}
 
 $( document ).ready(function() {	
 
-  startTimeOut();
   
   // function to swap out images
   $(".player-play").click(function(){
@@ -162,7 +161,6 @@ function stopAudio() {
 //
 function onSuccess() {
 	console.log("playAudio():Audio Success");
-	startTimeout();
 }
 
 // onError Callback
