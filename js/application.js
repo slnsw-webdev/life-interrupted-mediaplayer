@@ -40,7 +40,7 @@ function onDeviceReady(){}
 
 $( document ).ready(function() {
 	
-  $("#overlay").hide();	
+  $("#overlay").css("visibility", "hidden");
 
   
   // function to swap out images
@@ -50,7 +50,7 @@ $( document ).ready(function() {
 	  stopAudio();
 	  resetPlayer();
 	  
-	  $("#overlay").show();
+	  $("#overlay").css("visibility", "visible");
 	  
 	  // set class on cell
 	  $(this).closest(".column-cell").css("background-color", "#00cc99");
@@ -67,7 +67,7 @@ $( document ).ready(function() {
 	 $('#player-stop-' + click_id).show();
 	 
 	 // play audio
-	 play_Audio(media_src, click_id);	
+	 // play_Audio(media_src, click_id);	
 	 
   });
   
@@ -134,7 +134,7 @@ function play_Audio(src,ref) {
 				function(position) {
 					if (position > -1) {
 						// playing
-						$("#overlay").hide();
+						$("#overlay").css("visibility", "hidden");
 						setAudioPosition((position,ref) + " sec");
 					} 
 				},
