@@ -40,11 +40,17 @@ function onDeviceReady(){}
 
 $( document ).ready(function() {
 	
-  $("#overlay").css("visibility", "hidden");
+  // hide overlay modal
+  el = document.getElementById("overlay");
+  el.style.visibility = "hidden";
 
   
   // function to swap out images
   $(".player-play").click(function(){
+	  
+	 // show overlay modal
+  	 el = document.getElementById("overlay");
+     el.style.visibility = "visible";
 	  
 	  // stop any audio playing
 	  stopAudio();
@@ -114,8 +120,6 @@ $( document ).ready(function() {
 //
 function play_Audio(src,ref) {
 	
-	$("#overlay").css("visibility", "visible");
-	
 	// Create Media object from src
 	my_media = new Media(src, onSuccess, onError);
 	
@@ -134,7 +138,10 @@ function play_Audio(src,ref) {
 				function(position) {
 					if (position > -1) {
 						// playing
-						$("#overlay").css("visibility", "hidden");
+						// hide overlay modal
+  						el = document.getElementById("overlay");
+  						el.style.visibility = "hidden";
+
 						setAudioPosition((position,ref) + " sec");
 					} 
 				},
