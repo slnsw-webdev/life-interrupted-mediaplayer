@@ -38,12 +38,18 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady(){}
 
-$( document ).ready(function() {	
+$( document ).ready(function() {
+	
+  $("#overlay").hide();	
 
   
   // function to swap out images
   $(".player-play").click(function(){
  	  
+	  // stop any audio playing
+	  stopAudio();
+	  resetPlayer();
+	  
 	  $("#overlay").show();
 	  
 	  // set class on cell
@@ -163,7 +169,8 @@ function stopAudio() {
 // onSuccess Callback
 //
 function onSuccess() {
-	console.log("playAudio():Audio Success");
+	// reset player
+	resetPlayer();
 }
 
 // onError Callback
@@ -185,3 +192,13 @@ $( document ).idleTimer( 15*60*1000 );
 $( document ).on( "idle.idleTimer", function(){
 	 document.location.href = 'index.html';
 });
+
+function resetPlayer() {
+	 // swap all background's and images 
+	  $( ".column-cell" ).each(function( index ) {
+  		 $(this).css("background-color", "#fff");
+		 var ref_id = index + 1; 
+		 $('#player-play-' + ref_id).show();
+	 	 $('#player-stop-' + ref_id).hide();
+	  });	
+}

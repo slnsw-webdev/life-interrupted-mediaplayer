@@ -495,7 +495,6 @@ div.ui-slider-track {
 }
 
 #overlay {
-     visibility: hidden;
      position: absolute;
      left: 0px;
      top: 0px;
@@ -524,6 +523,11 @@ div.ui-slider-track {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	z-index: 1001;
+	text-align:center;
+}
+
+.buff-img {
+	margin-top: 35px;	
 }
 
 .buffering-text {
@@ -532,4 +536,5 @@ div.ui-slider-track {
 	font-size:9px;
 	font-style:italic;
 	font-weight:bold;	
+	padding-bottom: 40px;	
 }
