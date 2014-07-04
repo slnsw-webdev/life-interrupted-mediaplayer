@@ -193,7 +193,7 @@ function setAudioPosition(position,ref) {
 }
 
 // idle timer function
-$( document ).idleTimer( 1*60*1000 );
+$( document ).idleTimer( 15*60*1000 );
 $( document ).on( "idle.idleTimer", function(){
 	 document.location.href = 'index.html';
 });
