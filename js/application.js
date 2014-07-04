@@ -44,7 +44,7 @@ $( document ).ready(function() {
   // function to swap out images
   $(".player-play").click(function(){
  	  
-	  displayLoader();
+	  $("#overlay").show();
 	  
 	  // set class on cell
 	  $(this).closest(".column-cell").css("background-color", "#00cc99");
@@ -113,9 +113,8 @@ function play_Audio(src,ref) {
 	// Create Media object from src
 	my_media = new Media(src, onSuccess, onError);
 	
-	
 	// set volume
-	my_media.setVolume('0.8');
+	my_media.setVolume('0.9');
 	
 	// Play audio
 	my_media.play({ numberOfLoops: 1 });
@@ -129,7 +128,7 @@ function play_Audio(src,ref) {
 				function(position) {
 					if (position > -1) {
 						// playing
-						closeLoader();
+						$("#overlay").hide();
 						setAudioPosition((position,ref) + " sec");
 					} 
 				},
@@ -180,20 +179,6 @@ function setAudioPosition(position,ref) {
 	var audio_pos = 'audio_position_'+ref;
 	document.getElementById(audio_pos).innerHTML = position;
 }
-
-// buffering loader
-function displayLoader() {
-	// help modal
-	el = document.getElementById("overlay");
-	el.style.visibility = "visible";
-}
-
-function closeLoader() {
-	// close modal
-	el = document.getElementById("overlay");
-	el.style.visibility = "hidden";	
-}
-
 
 // idle timer function
 $( document ).idleTimer( 15*60*1000 );
