@@ -510,6 +510,7 @@ div.ui-slider-track {
 	left: 27%;
 	top: 15%;
     width: 45%;
+	height: 165px;
 	overflow-y: hidden;
 	overflow-x: hidden;
 	padding: 10px 10px 10px 10px;
@@ -527,7 +528,7 @@ div.ui-slider-track {
 }
 
 .buff-img {
-	margin-top: 35px;	
+	margin-top: 45px;	
 }
 
 .buffering-text {

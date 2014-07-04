@@ -67,7 +67,7 @@ $( document ).ready(function() {
 	 $('#player-stop-' + click_id).show();
 	 
 	 // play audio
-	 // play_Audio(media_src, click_id);	
+	 play_Audio(media_src, click_id);	
 	 
   });
   
