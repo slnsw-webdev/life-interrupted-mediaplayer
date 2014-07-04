@@ -52,8 +52,7 @@ $( document ).ready(function() {
   	 el = document.getElementById("overlay");
      el.style.visibility = "visible";
 	  
-	  // stop any audio playing
-	  stopAudio();
+	  //reset page elements
 	  resetPlayer();
 	  
 	  // set class on cell
@@ -200,11 +199,11 @@ $( document ).on( "idle.idleTimer", function(){
 });
 
 function resetPlayer() {
-	 // swap all background's and images 
-	  $( ".column-cell" ).each(function( index ) {
-  		 $(this).css("background-color", "#fff");
-		 var ref_id = index + 1; 
-		 $('#player-play-' + ref_id).show();
-	 	 $('#player-stop-' + ref_id).hide();
-	  });	
+  // swap all background's and images 
+  $( ".column-cell" ).each(function( index ) {
+	 $(this).css("background-color", "#fff");
+	 var ref_id = index + 1; 
+	 $('#player-play-' + ref_id).show();
+	 $('#player-stop-' + ref_id).hide();
+  });	
 }
