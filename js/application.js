@@ -59,8 +59,7 @@ $( document ).ready(function() {
 	 $('#player-play-' + click_id).hide();
 	 $('#player-stop-' + click_id).show();
 	 
-	 // displayLoader();
-	 
+	 displayLoader();
 	 // play audio
 	 play_Audio(media_src);	
 	 
@@ -129,9 +128,7 @@ function play_Audio(src) {
 						closeLoader();
 						stopTimeOut();
 						setAudioPosition((position) + " sec");
-					} else { // buffering
-						displayLoader();
-					}
+					} 
 				},
 				// error callback
 				function(e) {
