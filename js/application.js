@@ -1,7 +1,3 @@
-// Wait for device API libraries to load
-//
-// document.addEventListener("deviceready", onDeviceReady, false);
-
 // files
 var media_files = [];
 media_files[0] = "AnneDonnell_Christmas_Day_celebrations.mp3";
@@ -32,67 +28,74 @@ media_files[21] = "Emden_sydney_short.mp3";
 var my_media = null;
 var mediaTimer = null;
 
-$("#player-play-demo").click(function(){
+// Wait for device API libraries to load
+//
+document.addEventListener("deviceready", onDeviceReady, false);
 
-	// Create Media object from src
-	my_media = new Media("http://www.sl.nsw.gov.au/events/exhibitions/2014/life_interrupted/audio/AnneDonnell_Christmas_Day_celebrations.mp3", onSuccess, onError);
-	
-	// Play audio
-	my_media.play();
-	
-});
+function onDeviceReady(){}
 
+$( document ).ready(function() {	  
+  // function to swap out images
+  $(".player-play").click(function(){
+	  
+	  // event.preventDefault();
+	  console.log('play audio called ....');
+	  
+	  
+	  // set class on cell
+	  $(this).closest(".column-cell").css("background-color", "#00cc99");
+  
+	 // get media file
+	 click_ref = $(this).attr("id").split("-");
+	 click_id = click_ref[2];
+	 media_ref = parseInt(click_id, 10)-1;
+	 file_name = media_files[media_ref];
+	 media_src = "http://www.sl.nsw.gov.au/events/exhibitions/2014/life_interrupted/audio/" + file_name;
 	
-// function to swap out images
-$(".player-play").click(function(){
+	 
+	 console.log('media_src ....' + media_src);
+  
 	
-	// event.preventDefault();
-	
-	// set class on cell
-	$(this).closest(".column-cell").css("background-color", "#00cc99");
+	 
+	 // play audio
+	 play_Audio(media_src);	
+	 
+	 // swap image for that media file
+	 $('#player-play-' + click_id).hide();
+	 $('#player-stop-' + click_id).show();
+	 
+  });
+  
+  $(".player-stop").click(function(){
+	  
+	  // event.preventDefault();
+	  
+	  // set class on cell
+	  $(this).closest(".column-cell").css("background-color", "#FFF");
+	  
+	  // get media file
+	  click_ref = $(this).attr("id").split("-");
+	  click_id = click_ref[2];
+	  
+	 // swap image
+	 $('#player-stop-' + click_id).hide();
+	 $('#player-play-' + click_id).show();
+	 
+  });
 
-   // get media file
-   click_ref = $(this).attr("id").split("-");
-   click_id = click_ref[2];
-   media_ref = parseInt(click_id, 10)-1;
-   file_name = media_files[media_ref];
-   media_src = "http://www.sl.nsw.gov.au/events/exhibitions/2014/life_interrupted/audio/" + file_name;
-   
-   // play audio
-   play_Audio(media_src);	
-   
-   // swap image for that media file
-   $('#player-play-' + click_id).hide();
-   $('#player-stop-' + click_id).show();
-   
-});
-
-$(".player-stop").click(function(){
-	
-	// event.preventDefault();
-	
-	// set class on cell
-	$(this).closest(".column-cell").css("background-color", "#FFF");
-	
-	// get media file
-	click_ref = $(this).attr("id").split("-");
-	click_id = click_ref[2];
-	
-   // swap image
-   $('#player-stop-' + click_id).hide();
-   $('#player-play-' + click_id).show();
-   
 });
 
 // Play audio
 //
 function play_Audio(src) {
 	
+	console.log('play audtio called ....');
+	
 	// Create Media object from src
 	my_media = new Media(src, onSuccess, onError);
 	
 	// Play audio
-	my_media.play();
+	my_media.play({ numberOfLoops: 1 });
 
 	// Update my_media position every second
 	if (mediaTimer == null) {
