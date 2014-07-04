@@ -46,6 +46,44 @@ $( document ).ready(function() {
 
 });
 
+function show_modal() {
+	var deferred = $.Deferred();
+	var i=1;
+	var nextStep = function() {
+			showModal();
+			deferred.resolve(i);
+		}
+	nextStep();
+	return deferred.promise();
+}
+
+function hide_modal() {
+	var deferred = $.Deferred();
+	var nextStep = function() {
+			hideModal();
+			deferred.resolve(i);
+		}
+	nextStep();
+	return deferred.promise();
+}
+
+    
+function request_Audio(btnRef) {
+	var promise = show_modal();
+	promise.then(function(result) { 
+		console.log('Modal called');
+	});
+	select_Audio(btnRef);
+}
+
+function close_Audio(btnRef) {
+	var promise = hide_modal();
+	promise.then(function(result) { 
+		console.log('Modal called');
+	});
+	pause_Audio(btnRef);
+}
+
 // function to swap out images
 function select_Audio(btnRef) {
 	  
