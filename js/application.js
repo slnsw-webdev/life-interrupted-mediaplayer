@@ -71,7 +71,7 @@ $( document ).ready(function() {
 	 $('#player-stop-' + click_id).show();
 	 
 	 // play audio
-	 play_Audio(media_src,click_id);	
+	 // play_Audio(media_src,click_id);	
 	 
   });
   
@@ -141,8 +141,8 @@ function play_Audio(src,ref) {
 						// hide overlay modal
   						el = document.getElementById("overlay");
   						el.style.visibility = "hidden";
-
-						setAudioPosition((position,ref) + " sec");
+						var posText = position + " sec";
+						setAudioPosition(posText, ref);
 					} 
 				},
 				// error callback
@@ -194,7 +194,7 @@ function setAudioPosition(position,ref) {
 }
 
 // idle timer function
-$( document ).idleTimer( 15*60*1000 );
+$( document ).idleTimer( 1*60*1000 );
 $( document ).on( "idle.idleTimer", function(){
 	 document.location.href = 'index.html';
 });
