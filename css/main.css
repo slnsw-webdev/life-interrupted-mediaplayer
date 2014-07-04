@@ -493,3 +493,35 @@ div.ui-slider-track {
         page-break-after: avoid;
     }
 }
+
+#overlay {
+     visibility: hidden;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     width:100%;
+     height:100%;
+     text-align:center;
+	 background: rgba(0,0,0,0.65);
+     z-index: 1000;
+}
+
+#overlay div {
+	position: relative;
+	left: 27%;
+	top: 15%;
+    width: 45%;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	padding: 10px 10px 10px 10px;
+	margin: 0px 5px 20px 20px;
+	background: rgba(255,255,255,0.95);
+	/* color:#BABEC2; */
+	font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+	-webkit-box-shadow: rgba(0,0,0,0.85) 5px 5px 20px;
+	-moz-box-shadow: rgba(0,0,0,0.85) 5px 5px 20px;
+	box-shadow: rgba(0,0,0,0.85) 5px 5px 20px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	z-index: 1001;
+}

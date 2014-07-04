@@ -1,3 +1,7 @@
+// global
+var intervalId;
+var sessionLength = 3; // no. of minutes
+
 // files
 var media_files = [];
 media_files[0] = "AnneDonnell_Christmas_Day_celebrations.mp3";
@@ -34,45 +38,72 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady(){}
 
-$( document ).ready(function() {	  
+$( document ).ready(function() {	
+
+  startTimeOut();
+  
   // function to swap out images
   $(".player-play").click(function(){
  	  
 	  // set class on cell
 	  $(this).closest(".column-cell").css("background-color", "#00cc99");
   
-	 // get media file
+  	  // get media file
 	 click_ref = $(this).attr("id").split("-");
 	 click_id = click_ref[2];
 	 media_ref = parseInt(click_id, 10)-1;
 	 file_name = media_files[media_ref];
 	 media_src = "http://www.sl.nsw.gov.au/events/exhibitions/2014/life_interrupted/audio/" + file_name;
+  
+  	 // swap image for that media file
+	 $('#player-play-' + click_id).hide();
+	 $('#player-stop-' + click_id).show();
+	 
+	 // displayLoader();
 	 
 	 // play audio
 	 play_Audio(media_src);	
 	 
-	 // swap image for that media file
-	 $('#player-play-' + click_id).hide();
-	 $('#player-stop-' + click_id).show();
+  });
+  
+  $(".player-pause").click(function(){
+	  
+	  // event.preventDefault();
+	  pauseAudio();
+	  
+	  // get media file
+	  click_ref = $(this).attr("id").split("-");
+	  click_id = click_ref[2];
+	  
+	  // swap image
+	  $('#player-stop-' + click_id).hide();
+	  $('#player-play-' + click_id).show();
+	  
+	  // set class on cell
+	  $(this).closest(".column-cell").css("background-color", "#FFF");
+	  
 	 
   });
   
   $(".player-stop").click(function(){
 	  
 	  // event.preventDefault();
-	  
-	  // set class on cell
-	  $(this).closest(".column-cell").css("background-color", "#FFF");
+	  stopAudio();
 	  
 	  // get media file
 	  click_ref = $(this).attr("id").split("-");
 	  click_id = click_ref[2];
 	  
-	 // swap image
-	 $('#player-stop-' + click_id).hide();
-	 $('#player-play-' + click_id).show();
+	  // swap image
+	  $('#player-stop-' + click_id).hide();
+	  $('#player-play-' + click_id).show();
+	  
+	  // set class on cell
+	  $(this).closest(".column-cell").css("background-color", "#FFF");
+	  
 	 
   });
+  
 
 });
 
@@ -94,13 +125,19 @@ function play_Audio(src) {
 				// success callback
 				function(position) {
 					if (position > -1) {
+						// playing
+						closeLoader();
+						stopTimeOut();
 						setAudioPosition((position) + " sec");
+					} else { // buffering
+						displayLoader();
 					}
 				},
 				// error callback
 				function(e) {
 					alert("Error getting pos=" + e);
 					setAudioPosition("Error: " + e);
+					startTimeout();
 				}
 			);
 		}, 1000);
@@ -128,7 +165,8 @@ function stopAudio() {
 // onSuccess Callback
 //
 function onSuccess() {
-	alert("playAudio():Audio Success");
+	console.log("playAudio():Audio Success");
+	startTimeout();
 }
 
 // onError Callback
@@ -142,4 +180,68 @@ function onError(error) {
 //
 function setAudioPosition(position) {
 	document.getElementById('audio_position').innerHTML = position;
+}
+
+// buffering loader
+function displayLoader() {
+	// help modal
+	el = document.getElementById("overlay");
+	el.style.visibility = "visible";
+}
+
+function closeLoader() {
+	// close modal
+	el = document.getElementById("overlay");
+	el.style.visibility = "hidden";	
+}
+
+
+function startTimeOut(){
+	// set cookie time as now+sessionLength 
+	createCookie('li-media','iPad',sessionLength);
+	// check session every 5 minutes
+	intervalId = setInterval(checkSession, sessionLength*60*1000);
+	// console.log(arguments.callee.caller, 'Starting timeout - function called');		
+	// console.log(intervalId, 'Starting timeout - interval ref');		
+}
+
+function stopTimeOut(){
+	
+	// console.log(arguments.callee.caller, 'Stoping timeout - function called');
+	// console.log(intervalId, 'Stoping timeout - interval ref');
+	
+	clearInterval(intervalId);
+	eraseCookie('li-media');				
+}
+
+function checkSession() {
+	// check cookie time
+	if (readCookie('li-media') == null){
+		startTimeout();	
+	}	
+}
+
+function createCookie(name,value,mins) {
+	if (mins) {
+		var date = new Date();
+		date.setTime(date.getTime()+(mins*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+function eraseCookie(name) {
+	createCookie(name,"",-1);
 }
