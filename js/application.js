@@ -62,7 +62,7 @@ $( document ).ready(function() {
 	 $('#player-stop-' + click_id).show();
 	 
 	 // play audio
-	 play_Audio(media_src);	
+	 // play_Audio(media_src);	
 	 
   });
   
@@ -127,7 +127,6 @@ function play_Audio(src) {
 					if (position > -1) {
 						// playing
 						closeLoader();
-						stopTimeOut();
 						setAudioPosition((position) + " sec");
 					} 
 				},
@@ -135,7 +134,6 @@ function play_Audio(src) {
 				function(e) {
 					alert("Error getting pos=" + e);
 					setAudioPosition("Error: " + e);
-					startTimeout();
 				}
 			);
 		}, 1000);
@@ -194,52 +192,8 @@ function closeLoader() {
 }
 
 
-function startTimeOut(){
-	// set cookie time as now+sessionLength 
-	createCookie('li-media','iPad',sessionLength);
-	// check session every 5 minutes
-	intervalId = setInterval(checkSession, sessionLength*60*1000);
-	// console.log(arguments.callee.caller, 'Starting timeout - function called');		
-	// console.log(intervalId, 'Starting timeout - interval ref');		
-}
-
-function stopTimeOut(){
-	
-	// console.log(arguments.callee.caller, 'Stoping timeout - function called');
-	// console.log(intervalId, 'Stoping timeout - interval ref');
-	
-	clearInterval(intervalId);
-	eraseCookie('li-media');				
-}
-
-function checkSession() {
-	// check cookie time
-	if (readCookie('li-media') == null){
-		startTimeout();	
-	}	
-}
-
-function createCookie(name,value,mins) {
-	if (mins) {
-		var date = new Date();
-		date.setTime(date.getTime()+(mins*60*1000));
-		var expires = "; expires="+date.toGMTString();
-	}
-	else var expires = "";
-	document.cookie = name+"="+value+expires+"; path=/";
-}
-
-function readCookie(name) {
-	var nameEQ = name + "=";
-	var ca = document.cookie.split(';');
-	for(var i=0;i < ca.length;i++) {
-		var c = ca[i];
-		while (c.charAt(0)==' ') c = c.substring(1,c.length);
-		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-	}
-	return null;
-}
-
-function eraseCookie(name) {
-	createCookie(name,"",-1);
-}
+// idle timer function
+$( document ).idleTimer( 2*60*1000 );
+$( document ).on( "idle.idleTimer", function(){
+	 document.location.href = 'index.html';
+});
