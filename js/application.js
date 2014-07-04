@@ -45,6 +45,8 @@ $( document ).ready(function() {
   // function to swap out images
   $(".player-play").click(function(){
  	  
+	  displayLoader();
+	  
 	  // set class on cell
 	  $(this).closest(".column-cell").css("background-color", "#00cc99");
   
@@ -59,7 +61,6 @@ $( document ).ready(function() {
 	 $('#player-play-' + click_id).hide();
 	 $('#player-stop-' + click_id).show();
 	 
-	 displayLoader();
 	 // play audio
 	 play_Audio(media_src);	
 	 
