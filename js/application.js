@@ -45,12 +45,10 @@ $( document ).ready(function() {
   
   // function to swap out images
   $(".player-play").click(function(){
- 	  
+	  
 	  // stop any audio playing
 	  stopAudio();
 	  resetPlayer();
-	  
-	  $("#overlay").css("visibility", "visible");
 	  
 	  // set class on cell
 	  $(this).closest(".column-cell").css("background-color", "#00cc99");
@@ -67,7 +65,7 @@ $( document ).ready(function() {
 	 $('#player-stop-' + click_id).show();
 	 
 	 // play audio
-	 play_Audio(media_src, click_id);	
+	 play_Audio(media_src,click_id);	
 	 
   });
   
@@ -115,6 +113,8 @@ $( document ).ready(function() {
 // Play audio
 //
 function play_Audio(src,ref) {
+	
+	$("#overlay").css("visibility", "visible");
 	
 	// Create Media object from src
 	my_media = new Media(src, onSuccess, onError);
@@ -183,8 +183,7 @@ function onError(error) {
 // Set audio position
 //
 function setAudioPosition(position,ref) {
-	var audio_pos = 'audio_position_'+ref;
-	document.getElementById(audio_pos).innerHTML = position;
+	document.getElementById('audio_position_'+ref).innerHTML = position;
 }
 
 // idle timer function
