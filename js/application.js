@@ -46,11 +46,13 @@ $( document ).ready(function() {
 
   
   // function to swap out images
-  $(".player-play").click(function(){
+  $(".player-play").click(function(event){
 	  
-	 // show overlay modal
-  	 el = document.getElementById("overlay");
-     el.style.visibility = "visible";
+	  event.preventDefault();
+	  
+	  // show overlay modal
+  	  el = document.getElementById("overlay");
+      el.style.visibility = "visible";
 	  
 	  //reset page elements
 	  resetPlayer();
@@ -74,9 +76,9 @@ $( document ).ready(function() {
 	 
   });
   
-  $(".player-pause").click(function(){
+  $(".player-pause").click(function(event){
 	  
-	  // event.preventDefault();
+	  event.preventDefault();
 	  pauseAudio();
 	  
 	  // get media file
@@ -93,9 +95,9 @@ $( document ).ready(function() {
 	 
   });
   
-  $(".player-stop").click(function(){
+  $(".player-stop").click(function(event){
 	  
-	  // event.preventDefault();
+	  event.preventDefault();
 	  stopAudio();
 	  
 	  // get media file
