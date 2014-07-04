@@ -61,7 +61,7 @@ $( document ).ready(function() {
 	 $('#player-stop-' + click_id).show();
 	 
 	 // play audio
-	 // play_Audio(media_src);	
+	 play_Audio(media_src, click_id);	
 	 
   });
   
@@ -108,10 +108,14 @@ $( document ).ready(function() {
 
 // Play audio
 //
-function play_Audio(src) {
+function play_Audio(src,ref) {
 	
 	// Create Media object from src
 	my_media = new Media(src, onSuccess, onError);
+	
+	
+	// set volume
+	my_media.setVolume('0.8');
 	
 	// Play audio
 	my_media.play({ numberOfLoops: 1 });
@@ -126,7 +130,7 @@ function play_Audio(src) {
 					if (position > -1) {
 						// playing
 						closeLoader();
-						setAudioPosition((position) + " sec");
+						setAudioPosition((position,ref) + " sec");
 					} 
 				},
 				// error callback
@@ -172,8 +176,9 @@ function onError(error) {
 
 // Set audio position
 //
-function setAudioPosition(position) {
-	document.getElementById('audio_position').innerHTML = position;
+function setAudioPosition(position,ref) {
+	var audio_pos = 'audio_position_'+ref;
+	document.getElementById(audio_pos).innerHTML = position;
 }
 
 // buffering loader
@@ -191,7 +196,7 @@ function closeLoader() {
 
 
 // idle timer function
-$( document ).idleTimer( 2*60*1000 );
+$( document ).idleTimer( 15*60*1000 );
 $( document ).on( "idle.idleTimer", function(){
 	 document.location.href = 'index.html';
 });
