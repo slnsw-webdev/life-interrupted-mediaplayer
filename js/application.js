@@ -9,6 +9,6 @@ function onDeviceReady(){}
 // idle timer function
 $( document ).idleTimer( 15*60*1000 );
 $( document ).on( "idle.idleTimer", function(){
-	 document.location.href = 'index.html';
+	 document.location.href = 'player.html';
 });
 
